@@ -1,0 +1,48 @@
+body{
+	color: #bfbfbf;
+}
+
+.overViewLists{
+	margin-left: -22px;
+}
+
+.overViewLists li{
+	list-style: none;
+	font-size: 12px;
+    font-weight: 300;
+}
+
+.genesisIcons{
+	width: 21px;
+	margin-right: 12px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.settingsButtonDownLeft{
+	position: fixed !important;
+    bottom: 10px;
+    left: 0px;
+    z-index: 99;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	font-size: 12px;
+}
+
+.table>tbody>tr>td{
+	padding: 0px;
+	text-align: center;
+}
+
+#tableBody>tr>td:nth-child(1){
+	text-align: left;
+}
+
+.dataTables_filter input[type="search"]{
+	border-radius: 3px;
+    padding: 5px;
+    height: 18px;
+    background: #464646;
+    border: 1px solid #464646;
+}
