@@ -485,8 +485,9 @@ function showCustomNumber(){
 </script>
 
 <script type="text/javascript">
+  var dataGlobal;
   $(document).ready(function(){
-    getData("https://genesis-rest-api.herokuapp.com/data/days/365");  
+    getData("https://genesis-rest-api.herokuapp.com/data/days/1");  
   });
 
 
@@ -499,9 +500,11 @@ function showCustomNumber(){
       type:"GET",
       success: function(data){
               console.log(data);
-              $("#tableBody").html();
+              dataGlobal = data;
+              $("#tableBody").empty();
               $.each(data.data, function( index, value ) {
-                 var markup = "<tr><td>" + value.adGroup + "</td><td>" + value.defaultMaxCPC/1000000 + "</td><td>" + value.clicks + "</td><td>" + value.impressions + "</td><td>" + value.ctr + "</td><td>" + value.avgCPC/1000000 + "</td><td>" + value.cost/1000000 + "</td><td>" + value.avgPosition + "</td><td>" + value.conversions + "</td><td>" + value.costConv + "</td><td>" + value.convRate + "</td><td>" + value.searchImprShare + "</td><td>" + value.searchExactMatchIS + "</td>";
+                var tempSession =value.sessions
+                 var markup = "<tr><td onclick='showSessionData(\""+ value.adGroup +"\");'>" + value.adGroup + "</td><td>" + value.defaultMaxCPC + "</td><td>" + value.clicks + "</td><td>" + value.impressions + "</td><td>" + value.ctr + "</td><td>" + value.avgCPC + "</td><td>" + value.cost + "</td><td>" + value.avgPosition + "</td><td>" + value.conversions + "</td><td>" + value.costConv + "</td><td>" + value.convRate + "</td><td>" + value.searchImprShare + "</td><td>" + value.searchExactMatchIS + "</td>";
                  try
             {
                 if(Object.keys(value.analytics).length){
@@ -533,6 +536,16 @@ function showCustomNumber(){
 
     })
    
+  }
+
+  function showSessionData(productTitle){
+    console.log(productTitle);
+    //console.log(dataGlobal);
+    $.each(productTitle.sessions in dataGlobal.data,function(index, value) {
+        //$("div").append('<img src="' + value + '" />');
+        console.log(value);
+    })
+
   }
 </script>
 
